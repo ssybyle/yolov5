@@ -3,11 +3,11 @@
 Train a YOLOv5 model on a custom dataset. Models and datasets download automatically from the latest YOLOv5 release.
 
 Usage - Single-GPU training:
-    $ python train.py --data coco.yaml --weights yolov5s.pt --img 640  # from pretrained (recommended)
-    $ python train.py --data coco.yaml --weights '' --cfg yolov5s.yaml --img 640  # from scratch
+    $ python train.py --data coco128.yaml --weights yolov5s.pt --img 640  # from pretrained (recommended)
+    $ python train.py --data coco128.yaml --weights '' --cfg yolov5s.yaml --img 640  # from scratch
 
 Usage - Multi-GPU DDP training:
-    $ python -m torch.distributed.run --nproc_per_node 4 --master_port 1 train.py --data coco.yaml --weights yolov5s.pt --img 640 --device 0,1,2,3
+    $ python -m torch.distributed.run --nproc_per_node 4 --master_port 1 train.py --data coco128.yaml --weights yolov5s.pt --img 640 --device 0,1,2,3
 
 Models:     https://github.com/ultralytics/yolov5/tree/master/models
 Datasets:   https://github.com/ultralytics/yolov5/tree/master/data
@@ -119,13 +119,13 @@ def train(hyp, opt, device, callbacks):
     Example:
         Single-GPU training:
         ```bash
-        $ python train.py --data coco.yaml --weights yolov5s.pt --img 640  # from pretrained (recommended)
-        $ python train.py --data coco.yaml --weights '' --cfg yolov5s.yaml --img 640  # from scratch
+        $ python train.py --data coco128.yaml --weights yolov5s.pt --img 640  # from pretrained (recommended)
+        $ python train.py --data coco128.yaml --weights '' --cfg yolov5s.yaml --img 640  # from scratch
         ```
 
         Multi-GPU DDP training:
         ```bash
-        $ python -m torch.distributed.run --nproc_per_node 4 --master_port 1 train.py --data coco.yaml --weights
+        $ python -m torch.distributed.run --nproc_per_node 4 --master_port 1 train.py --data coco128.yaml --weights
         yolov5s.pt --img 640 --device 0,1,2,3
         ```
 
@@ -566,7 +566,7 @@ def parse_opt(known=False):
     parser = argparse.ArgumentParser()
     parser.add_argument("--weights", type=str, default=ROOT / "yolov5s.pt", help="initial weights path")
     parser.add_argument("--cfg", type=str, default="", help="model.yaml path")
-    parser.add_argument("--data", type=str, default=ROOT / "data/coco.yaml", help="dataset.yaml path")
+    parser.add_argument("--data", type=str, default=ROOT / "data/coco128.yaml", help="dataset.yaml path")
     parser.add_argument("--hyp", type=str, default=ROOT / "data/hyps/hyp.scratch-low.yaml", help="hyperparameters path")
     parser.add_argument("--epochs", type=int, default=100, help="total training epochs")
     parser.add_argument("--batch-size", type=int, default=16, help="total batch size for all GPUs, -1 for autobatch")
@@ -924,7 +924,7 @@ def run(**kwargs):
     Args:
         weights (str, optional): Path to initial weights. Defaults to ROOT / 'yolov5s.pt'.
         cfg (str, optional): Path to model YAML configuration. Defaults to an empty string.
-        data (str, optional): Path to dataset YAML configuration. Defaults to ROOT / 'data/coco.yaml'.
+        data (str, optional): Path to dataset YAML configuration. Defaults to ROOT / 'data/coco128.yaml'.
         hyp (str, optional): Path to hyperparameters YAML configuration. Defaults to ROOT / 'data/hyps/hyp.scratch-low.yaml'.
         epochs (int, optional): Total number of training epochs. Defaults to 100.
         batch_size (int, optional): Total batch size for all GPUs. Use -1 for automatic batch size determination. Defaults to 16.
@@ -966,7 +966,7 @@ def run(**kwargs):
     Examples:
         ```python
         import train
-        train.run(data='coco.yaml', imgsz=320, weights='yolov5m.pt')
+        train.run(data='coco128.yaml', imgsz=320, weights='yolov5m.pt')
         ```
 
     Notes:
