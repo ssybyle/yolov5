@@ -68,9 +68,9 @@ from utils.torch_utils import select_device, smart_inference_mode
 
 @smart_inference_mode()
 def run(
-    weights=ROOT / "yolov5s.pt",  # model path or triton URL
-    source=ROOT / "data/images",  # file/dir/URL/glob/screen/0(webcam)
-    data=ROOT / "data/coco128.yaml",  # dataset.yaml path
+    weights=ROOT / "/content/last.pt",  # model path or triton URL
+    source=ROOT / "/content/drive/MyDrive/coin-detection/test/images",  # file/dir/URL/glob/screen/0(webcam)
+    data=ROOT / "/content/drive/MyDrive/coin-detection/data.yaml",  # dataset.yaml path
     imgsz=(640, 640),  # inference size (height, width)
     conf_thres=0.25,  # confidence threshold
     iou_thres=0.45,  # NMS IOU threshold
