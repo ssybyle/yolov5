@@ -77,7 +77,7 @@ def run(
     max_det=1000,  # maximum detections per image
     device="",  # cuda device, i.e. 0 or 0,1,2,3 or cpu
     view_img=False,  # show results
-    save_txt=False,  # save results to *.txt
+    save_txt=True,  # save results to *.txt
     save_format=0,  # save boxes coordinates in YOLO format or Pascal-VOC format (0 for YOLO and 1 for Pascal-VOC)
     save_csv=False,  # save results in CSV format
     save_conf=False,  # save confidences in --save-txt labels
