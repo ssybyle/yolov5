@@ -72,7 +72,7 @@ def run(
     source="/content/drive/MyDrive/DATA_DIR/r1_test_b/Images/trousers",  # file/dir/URL/glob/screen/0(webcam)
     data="/content/drive/MyDrive/coin-detection/data.yaml",  # dataset.yaml path
     imgsz=(640, 640),  # inference size (height, width)
-    conf_thres=0.75,  # confidence threshold
+    conf_thres=0.25,  # confidence threshold
     iou_thres=0.45,  # NMS IOU threshold
     max_det=1000,  # maximum detections per image
     device="",  # cuda device, i.e. 0 or 0,1,2,3 or cpu
