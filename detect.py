@@ -258,6 +258,9 @@ def run(
                     confidence = float(conf)
                     confidence_str = f"{confidence:.2f}"
 
+                    if confidence < 0.90:
+                        continue
+
                     if save_csv:
                         write_to_csv(p.name, label, confidence_str)
 
